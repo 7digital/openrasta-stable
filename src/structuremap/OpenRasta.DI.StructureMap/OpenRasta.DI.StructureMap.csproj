@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pipeline\Contributors\ReleaseAndDisposeAllHttpScopedObjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StructureMapDependencyResolver.cs" />
   </ItemGroup>
