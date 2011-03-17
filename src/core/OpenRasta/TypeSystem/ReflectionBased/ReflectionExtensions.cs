@@ -465,9 +465,8 @@ namespace OpenRasta.TypeSystem.ReflectionBased
 #if !SILVERLIGHT
             var converter = TypeDescriptor.GetConverter(type);
             if (converter == null || !converter.CanConvertFrom(typeof(string)))
-                throw new InvalidCastException("Cannot convert the string \"" + propertyValue + "\" to type "
-                                               + type.Name);
-            return TypeDescriptor.GetConverter(type).ConvertFromInvariantString(propertyValue);
+                throw new InvalidCastException("Cannot convert the string \"" + propertyValue + "\" to type " + type.Name);
+            return converter.ConvertFromString(propertyValue);
 #else
                 return null;
 #endif
