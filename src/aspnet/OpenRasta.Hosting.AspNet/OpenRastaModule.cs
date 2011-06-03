@@ -137,6 +137,9 @@ namespace OpenRasta.Hosting.AspNet
                 && (HttpContext.Current.Request.Path == "/" || !HostingEnvironment.VirtualPathProvider.DirectoryExists(HttpContext.Current.Request.Path))
                 && !HandlerAlreadyMapped(HttpContext.Current.Request.HttpMethod, HttpContext.Current.Request.Url))
             {
+                if (!HostManager.IsConfigured)
+                    Host.RaiseStart();
+
                 Log.StartPreExecution();
                 var context = CommunicationContext;
                 var stage = context.PipelineData.PipelineStage;
