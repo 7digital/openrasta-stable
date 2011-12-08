@@ -11,3 +11,4 @@ Thumbs.db
 *.cache
 .svn
 reports
+*.dotCover
