@@ -9,18 +9,23 @@ namespace OpenRasta.DI.StructureMap
 {
 	public class StructureMapDependencyResolver : DependencyResolverCore, IDependencyResolver
 	{
-		private readonly IContainer _container;
+		private static IContainer _container;
 		private readonly object _locker = new object();
 
 		public StructureMapDependencyResolver()
-			: this(ObjectFactory.Container)
-		{
+			: this(ObjectFactory.Container) {
 		}
 
 		public StructureMapDependencyResolver(IContainer container)
 		{
-			_container = container;
-			_container.Configure(ex => ex.FillAllPropertiesOfType<ILogger>());
+			if (_container == null) {
+				lock (_locker) {
+					if (_container == null) {
+						_container = container;
+						_container.Configure(ex => ex.FillAllPropertiesOfType<ILogger>());
+					}
+				}
+			}
 		}
 
 		protected override void AddDependencyCore(Type serviceType, Type concreteType, DependencyLifetime lifetime)
