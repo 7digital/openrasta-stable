@@ -28,7 +28,7 @@ namespace OpenRasta.DI.Windsor
 {
     public class WindsorDependencyResolver : DependencyResolverCore, IDependencyResolver
     {
-		private static IWindsorContainer _windsorContainer;
+		private static volatile IWindsorContainer _windsorContainer;
 		private static readonly object _synchRoot = new object();
 
         public WindsorDependencyResolver(IWindsorContainer container)
