@@ -9,7 +9,7 @@ namespace OpenRasta.DI.StructureMap
 {
 	public class StructureMapDependencyResolver : DependencyResolverCore, IDependencyResolver
 	{
-		private static IContainer _container;
+		private static volatile IContainer _container;
 		private readonly object _locker = new object();
 
 		public StructureMapDependencyResolver()
