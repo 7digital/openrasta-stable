@@ -42,7 +42,7 @@ namespace OpenRasta.DI.Windsor
 			}
         }
 
-		private static void LockedRegister(params IRegistration[] registration) {
+		private void LockedRegister(params IRegistration[] registration) {
 			lock (_synchRoot) {
 				_windsorContainer.Register(registration);
 			}
