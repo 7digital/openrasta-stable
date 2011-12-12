@@ -16,7 +16,7 @@ namespace OpenRasta.Hosting.AspNet
 {
     public class AspNetContextStore : IContextStore
     {
-        HttpContext Context
+        public HttpContext Context
         {
             get { return HttpContext.Current ?? CallContext.GetData("__OR_CONTEXT") as HttpContext; }
         }
