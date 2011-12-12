@@ -64,17 +64,26 @@ namespace OpenRasta.DI.StructureMap
 
 		protected override IEnumerable<TService> ResolveAllCore<TService>()
 		{
-			return _container.GetAllInstances<TService>();
+			lock (_locker)
+			{
+				return _container.GetAllInstances<TService>();
+			}
 		}
 
 		protected override object ResolveCore(Type serviceType)
 		{
-			return _container.GetInstance(serviceType);
+			lock (_locker)
+			{
+				return _container.GetInstance(serviceType);
+			}
 		}
 
 		public bool HasDependency(Type serviceType)
 		{
-			return _container.TryGetInstance(serviceType) != null;
+			lock (_locker)
+			{
+				return _container.TryGetInstance(serviceType) != null;
+			}
 		}
 
 		public bool HasDependencyImplementation(Type serviceType, Type concreteType)
