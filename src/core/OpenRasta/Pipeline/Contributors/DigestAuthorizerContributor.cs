@@ -122,19 +122,19 @@ namespace OpenRasta.Pipeline.Contributors
 
         static PipelineContinuation WriteCredentialRequest(ICommunicationContext context)
         {
-            if (context.OperationResult is OperationResult.Unauthorized)
-            {
-                context.Response.Headers["WWW-Authenticate"] =
-                    new DigestHeader
-                    {
-                        Realm = "Digest Authentication",
-                        QualityOfProtection = "auth",
-                        Nonce = "nonce",
-                        Stale = false,
-                        Opaque = "opaque"
-                    }
-                        .ServerResponseHeader;
-            }
+			//if (context.OperationResult is OperationResult.Unauthorized)
+			//{
+			//    context.Response.Headers["WWW-Authenticate"] =
+			//        new DigestHeader
+			//        {
+			//            Realm = "Digest Authentication",
+			//            QualityOfProtection = "auth",
+			//            Nonce = "nonce",
+			//            Stale = false,
+			//            Opaque = "opaque"
+			//        }
+			//            .ServerResponseHeader;
+			//}
             return PipelineContinuation.Continue;
         }
     }
