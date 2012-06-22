@@ -9,6 +9,7 @@
 #endregion
 
 using System;
+using System.Text;
 using System.Xml;
 using OpenRasta.TypeSystem;
 using OpenRasta.Web;
@@ -29,8 +30,8 @@ namespace OpenRasta.Codecs
             using (Writer = XmlWriter.Create(responseStream, 
                                              new XmlWriterSettings
                                              {
-                                                 ConformanceLevel =
-                                                     ConformanceLevel.Document, 
+												 Encoding = new UTF8Encoding(false),
+                                                 ConformanceLevel = ConformanceLevel.Document, 
                                                  Indent = true, 
                                                  NewLineOnAttributes = true, 
                                                  OmitXmlDeclaration = false, 
