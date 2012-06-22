@@ -74,6 +74,7 @@
     <Compile Include="Codecs\codec_context.cs" />
     <Compile Include="Codecs\media_type_reader_context.cs" />
     <Compile Include="Codecs\media_type_writer_context.cs" />
+    <Compile Include="Codecs\XmlCodec_Specification.cs" />
     <Compile Include="CodeDom.Compiler\ExtensibleCompiler_Specification.cs" />
     <Compile Include="Collections\ObservableIterator_Specification.cs" />
     <Compile Include="Collections\ResumableIterator_Specification.cs" />

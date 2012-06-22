@@ -36,7 +36,7 @@ namespace OpenRasta.Codecs
                                                  NewLineOnAttributes = true, 
                                                  OmitXmlDeclaration = false, 
                                                  CloseOutput = true, 
-                                                 CheckCharacters = true
+                                                 CheckCharacters = false,
                                              }))
             {
                 WriteToCore(entity, response);
