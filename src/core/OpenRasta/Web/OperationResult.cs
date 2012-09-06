@@ -94,6 +94,11 @@ namespace OpenRasta.Web
             {
             }
 
+			public Created(object resource) : base(201)
+            {
+                ResponseResource = resource;
+            }
+
             public Uri CreatedResourceUrl { get; set; }
         }
 
